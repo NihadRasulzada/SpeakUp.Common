@@ -30,7 +30,7 @@ public static class QueueFactory
 
     public static async Task<AsyncEventingBasicConsumer> CreateBasicConsumerAsync()
     {
-        var factory = new ConnectionFactory() { HostName = SpeakUpConstants.RabbitMQHost };
+        var factory = new ConnectionFactory() { HostName = SpeakUpConstants.RabbitMQHost, Port = 5672, UserName = "sa", Password = "1234567890Aa"};
         var connection = await factory.CreateConnectionAsync();
         var channel = await connection.CreateChannelAsync();
 
